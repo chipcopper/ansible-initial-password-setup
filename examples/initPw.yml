@@ -5,7 +5,7 @@
  
   tasks:
  
-    - name: change admin and root default password
+    - name: change admin and user default password
       brocade_initial_pw_setup:
         switch_address: "{{fos_ip_addr}}"
         new_admin_password: Password1
@@ -18,8 +18,8 @@
 
     - name: enable root command
       brocade_fos_command:
-        switch_login: "{{fos_user_name}}"
-        switch_password: "{{fos_password}}"
+        switch_login: admin
+        switch_password: Password1
         switch_address: "{{fos_ip_addr}}"
         command_set:
           - command: userconfig --change root -e yes
